@@ -8,4 +8,5 @@ edition = "2021"
 [dependencies]
 
 [workspace]
-members = [ "login", "auth", "userman", "scratchpad" ]
+members = [ "login", "auth", "userman", "scratchpad", "cats", "primes_slow", 
+"primes_shared", "primes_rayon", "rayon_threads" ]
