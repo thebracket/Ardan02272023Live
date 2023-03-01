@@ -1,6 +1,36 @@
 //use anyhow::Result;
 use thiserror::Error;
 
+const MY_CONST: usize = 12;
+const MY_CONST2: usize = MY_CONST + 12;
+
+#[cfg(target_family = "unix")]
+const A: usize = 3;
+
+#[cfg(not(target_family = "unix"))]
+const A: usize = 4;
+
+const fn add(a: usize, b:usize) -> usize {
+    a + b
+}
+
+const MAIN: &str = include_str!("main.rs");
+
+const fn loopy() -> usize {
+    let mut n = 3.2;
+    
+
+    let mut n = 1;
+    let mut i = 0;
+    while i < 20 {
+        n += i;
+        i += 1;
+    }
+    n
+}
+
+const C:usize = add(4,6) + loopy();
+
 #[derive(Error, Debug)]
 enum InputError {
     #[error("Standard input is unavailable")]
