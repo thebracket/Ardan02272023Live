@@ -1,4 +1,5 @@
-use std::sync::Mutex;
+//use std::sync::Mutex;
+use parking_lot::Mutex;
 
 fn is_prime(n: u32) -> bool {
     (2..=n / 2).all(|i| n % i != 0)
@@ -24,7 +25,7 @@ fn main() {
         threads.push(std::thread::spawn(move || {
             let range = u32::max(2, i * group)..(i + 1) * group;
             let my_primes: Vec<u32> = range.filter(|n| is_prime(*n)).collect();
-            PRIMES.lock().unwrap().extend(my_primes);
+            PRIMES.lock().extend(my_primes);
         }));
     }
 
@@ -37,6 +38,6 @@ fn main() {
 
     println!(
         "Found {} prime numbers in the range 2..{MAX}",
-        PRIMES.lock().unwrap().len()
+        PRIMES.lock().len()
     );
 }

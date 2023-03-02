@@ -13,4 +13,6 @@ members = [ "login", "auth", "userman", "scratchpad", "cats", "primes_slow",
 "primes_shared", "primes_rayon", "rayon_threads", "tokio_scratch",
 "tokio_tcp_server", "rpc_server", "tokio_channels", "tokio_broadcast",
 "system_channels", "globals", "rwlock", "newtypes", "traits1",
-"generic_data", "generic_data_adv", "macros", "feature_flags" ]
+"generic_data", "generic_data_adv", "macros", "feature_flags",
+"dashmap_demo", "simplest_benchmark", "simple_benchmark",
+"criterion_benchmark", "tcp_login_server", "website", "no_std_hello" ]
